@@ -1,9 +1,12 @@
-#include <main.hpp>
+#include <dog.hpp>
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
-    return 0;
+    cout<<endl;
+    Dog *d = new Dog("Max", 2014, true);
+    d->bark();
+    cout<<endl;
 }
