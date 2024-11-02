@@ -28,9 +28,9 @@ public:
     const std::string getName() const { return name; }
     int getAge() const
     {
-        time_t t = time(NULL); // get time now
+        time_t t = time(NULL);
         struct tm *now = localtime(&t);
-        int current_year = now->tm_year + 1900; // You might want to replace this with a function to get the current year dynamically
+        int current_year = now->tm_year + 1900;
         return current_year - birth_year;
     }
     bool getIsHealthy() const { return isHealthy; }
@@ -38,7 +38,7 @@ public:
     // Setters
     void setIsHealthy(bool isHealthy) { this->isHealthy = isHealthy; }
 
-    // Methods
+    // Actions
     void bark()
     {
         std::cout << this->name << ", age " << this->getAge() << " said: hamham" << std::endl;
