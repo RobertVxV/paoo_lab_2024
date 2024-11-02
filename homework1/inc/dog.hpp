@@ -19,10 +19,13 @@ public:
         this->name = name;
         this->birth_year = birth_year;
         this->isHealthy = isHealthy;
+        std::cout<<"Created dog using constructor: " << this->to_string();
     }
 
     // Destructor
-    ~Dog(){}
+    ~Dog() {
+        std::cout<<"Calling dog destructor on " << this->to_string();
+    }
 
     // Getters
     const std::string getName() const { return name; }
@@ -42,6 +45,12 @@ public:
     void bark()
     {
         std::cout << this->name << ", age " << this->getAge() << " said: hamham" << std::endl;
+    }
+    // to_string method
+    std::string to_string()
+    {
+        std::string health_status = isHealthy ? "healthy" : "not healthy";
+        return "Dog[name: " + name + ", age: " + std::to_string(getAge()) + ", health status: " + health_status + "]\n";
     }
 };
 
