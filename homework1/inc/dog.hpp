@@ -24,7 +24,7 @@ public:
 
     // Destructor
     ~Dog() {
-        std::cout<<"Calling dog destructor on " << this->to_string();
+        std::cout<<"Removed dog using destructor: " << this->to_string();
     }
 
     // Getters
