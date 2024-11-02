@@ -22,7 +22,7 @@ public:
     }
 
     // Destructor
-    ~Dog() {}
+    ~Dog(){}
 
     // Getters
     const std::string getName() const { return name; }
@@ -41,7 +41,7 @@ public:
     // Methods
     void bark()
     {
-        std::cout << this->getName() << ", age " << this->getAge() << " said: hamham" << std::endl;
+        std::cout << this->name << ", age " << this->getAge() << " said: hamham" << std::endl;
     }
 };
 
