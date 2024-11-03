@@ -26,8 +26,8 @@ public:
     // Destructor
     ~Dog()
     {
-        delete this->name;
-        std::cout << "Removed dog using destructor: " << this->to_string();
+        delete[] this->name;
+        std::cout << "Removed dog using destructor" << std::endl;
     }
 
     // Copy Constructor
@@ -42,6 +42,7 @@ public:
     // Move Constructor
     Dog(Dog &&other) noexcept
     {
+        delete[] this->name; // delete this->name
         this->name = other.name; // transfer ownership
         this->birth_year = other.birth_year;
         this->isHealthy = other.isHealthy;
@@ -50,7 +51,7 @@ public:
     }
 
     // Getters
-    char* getName() const { return name; }
+    char *getName() const { return name; }
     int getAge() const
     {
         time_t t = time(nullptr);
@@ -63,7 +64,9 @@ public:
     // Setters
     void setName(const char *name) const
     {
-        strcpy(this->name, name);
+        if(this->name != nullptr){
+            strncpy(this->name, name, 19);
+        }
     }
     void setIsHealthy(const bool isHealthy) { this->isHealthy = isHealthy; }
 
@@ -75,7 +78,7 @@ public:
     // to_string method
     std::string to_string() const
     {
-        const char *name_ptr = (name != NULL) ? name : "nullptr";
+        const char *name_ptr = (name != nullptr) ? name : "nullptr";
         std::string name_str(name_ptr);
         std::string health_status = isHealthy ? "healthy" : "not healthy";
         return "Dog[name: " + name_str + ", age: " + std::to_string(getAge()) + ", health status: " + health_status + "]\n";
