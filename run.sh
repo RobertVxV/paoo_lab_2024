@@ -20,10 +20,32 @@ rm -rf build
 mkdir build
 cd build || exit
 
-# Run cmake and make commands
+# Run cmake and check if it succeeded
 cmake ..
+if [ $? -ne 0 ]; then
+    echo "Error: cmake failed."
+    exit 1
+fi
+
+# Run make and check if it succeeded
 make
+if [ $? -ne 0 ]; then
+    echo "Error: make failed."
+    exit 1
+fi
 
-# Execute the 'homework1' binary
-./homework1
+# Find the single executable file
+executable_file=$(find . -maxdepth 1 -type f -executable)
 
+# Check if exactly one executable file was found
+if [ -z "$executable_file" ]; then
+    echo "Error: No executable file found."
+    exit 1
+elif [ $(echo "$executable_file" | wc -l) -ne 1 ]; then
+    echo "Error: Multiple executable files found."
+    exit 1
+fi
+
+# Execute the found executable
+echo "Running executable: $executable_file"
+"$executable_file"
