@@ -8,4 +8,5 @@ include_directories(. src inc)
 
 add_executable(homework1
         src/main.cpp
+        src/dog.cpp
         )
