@@ -9,5 +9,4 @@ include_directories(. src inc)
 add_executable(lucrarea4
         src/main.cpp
         src/dreptunghi.cpp
-        src/figura.cpp
         )
