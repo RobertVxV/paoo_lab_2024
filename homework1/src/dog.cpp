@@ -2,6 +2,8 @@
 #include <ctime>
 #include <iostream>
 #include <cstring>
+#include <sstream> //for std::stringstream 
+#include <string>  //for std::string
 
 // Constructor
 Dog::Dog(const char *name, int birth_year, bool isHealthy)
@@ -71,8 +73,14 @@ void Dog::bark() const
 // to_string method
 std::string Dog::to_string() const
 {
+    //get address of calling object.
+    const void * address = static_cast<const void*>(this);
+    std::stringstream ss;
+    ss << address;  
+    std::string address_str = ss.str(); 
+
     const char *name_ptr = (name != nullptr) ? name : "nullptr";
     std::string name_str(name_ptr);
     std::string health_status = isHealthy ? "healthy" : "not healthy";
-    return "Dog[name: " + name_str + ", age: " + std::to_string(getAge()) + ", health status: " + health_status + "]\n";
+    return "Dog[name: " + name_str + ", age: " + std::to_string(getAge()) + ", health status: " + health_status + "] - address: {" + address_str +"}\n";
 }
