@@ -4,11 +4,11 @@
 using namespace std;
 
 int main() {
-    // Crearea unui dreptunghi cu laturile 3.0 și 4.0
+    
     Dreptunghi d1(3.0, 4.0);
     Dreptunghi d2(1.0, 5.0);
 
-    Dreptunghi d3 = new Dreptunghi();
+    // Dreptunghi d3 = new Dreptunghi(); // eroare de compilare - no matching function for call to 'Dreptunghi::Dreptunghi()'
 
     // Dreptunghi d3 = d1; // Eroare de compilare - use of deleted function
 
