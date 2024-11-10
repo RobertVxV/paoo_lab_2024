@@ -9,6 +9,9 @@ public:
     double arie() const override;
     double perimetru() const override;
 
+    Dreptunghi(const Dreptunghi&) = delete;
+    Dreptunghi& operator=(const Dreptunghi&) = delete;
+
 private:
     double latura1;
     double latura2;
