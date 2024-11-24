@@ -35,17 +35,14 @@ if [ $? -ne 0 ]; then
 fi
 
 # Find the single executable file
-executable_file=$(find . -maxdepth 1 -type f -executable)
+executable_file=$(basename "$1")
 
 # Check if exactly one executable file was found
 if [ -z "$executable_file" ]; then
-    echo "Error: No executable file found."
-    exit 1
-elif [ $(echo "$executable_file" | wc -l) -ne 1 ]; then
-    echo "Error: Multiple executable files found."
+    echo "Error: Executable '$executable_file' not found."
     exit 1
 fi
 
 # Execute the found executable
 echo "Running executable: $executable_file"
-"$executable_file"
+"./$executable_file"
