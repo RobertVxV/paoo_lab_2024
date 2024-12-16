@@ -20,8 +20,6 @@ Complex Complex::operator+(const Complex& c) const {
 
 //create a method that returns a reference to *this
 
-//error: definition of implicitly-declared ‘constexpr Complex& Complex::operator=(const Complex&)’
-
 Complex& Complex::operator=(const Complex& c) {
     if (this == &c) {
         return *this; // Handle self-assignment

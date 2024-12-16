@@ -45,4 +45,4 @@ fi
 
 # Execute the found executable
 echo "Running executable: $executable_file"
-"./$executable_file"
+./$executable_file
